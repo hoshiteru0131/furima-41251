@@ -1,24 +1,63 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Users Table
+| Column              | Type      | Options                       |
+|---------------------|-----------|-------------------------------|
+| id                  | integer   | primary key                   |
+| nickname            | string    | null: false                   |
+| email               | string    | null: false, unique: true     |
+| encrypted_password  | string    | null: false                   |
+| name                | string    | null: false                   |
+| name_kana           | string    | null: false                   |
+| birth_date          | date      | null: false                   |
 
-Things you may want to cover:
+### Associations
+- has_many :items
+- has_many :purchases
+- has_many :addresses
 
-* Ruby version
+## Items Table
+| Column      | Type      | Options                       |
+|-------------|-----------|-------------------------------|
+| id          | integer   | primary key                   |
+| name        | string    | null: false                   |
+| description | text      | null: false                   |
+| category    | string    | null: false                   |
+| condition   | string    | null: false                   |
+| price       | integer   | null: false                   |
+| user_id     | integer   | null: false, foreign key      |
 
-* System dependencies
+### Associations
+- belongs_to :user
+- has_many :purchases
+- has_many :addresses
+- has_one_attached :image
 
-* Configuration
+## Purchases Table
+| Column      | Type      | Options                       |
+|-------------|-----------|-------------------------------|
+| id          | integer   | primary key                   |
+| user_id     | integer   | null: false, foreign key      |
+| item_id     | integer   | null: false, foreign key      |
 
-* Database creation
 
-* Database initialization
+### Associations
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
-* How to run the test suite
+## Addresses Table
+| Column       | Type      | Options                       |
+|--------------|-----------|-------------------------------|
+| id           | integer   | primary key                   |
+| postal_code  | string    | null: false                   |
+| prefecture   | string    | null: false                   |
+| city         | string    | null: false                   |
+| street       | string    | null: false                   |
+| building     | string    |                               |
+| phone_number | string    | null: false                   |
+| purchase_id  | integer   | null: false, foreign key      |
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
+### Associations
+- belongs_to :purchase
