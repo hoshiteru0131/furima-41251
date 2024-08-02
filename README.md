@@ -17,21 +17,21 @@
 - has_many :purchases
 
 ## Items Table
-| Column        | Type      | Options                       |
-|---------------|-----------|-------------------------------|
-| name          | string    | null: false                   |
-| description   | text      | null: false                   |
-| category      | string    | null: false                   |
-| condition     | string    | null: false                   |
-| shipping_fee  | integer   | null: false, foreign key      |
-| prefecture_id | integer   | null: false, foreign key      |
-| shipping_days | integer   | null: false, foreign key      |
-| price         | integer   | null: false                   |
-| user_id       | integer   | null: false, foreign key      |
+| Column          | Type       | Options                        |
+|-----------------|------------|--------------------------------| 
+| name            | string     | null: false                    |
+| description     | text       | null: false                    |
+| category_id     | integer    | null: false                    |
+| condition_id    | integer    | null: false                    |
+| shipping_fee_id | integer    | null: false                    |
+| prefecture_id   | integer    | null: false                    |
+| shipping_day_id | integer    | null: false                    |
+| price           | integer    | null: false                    |
+| user            | references | null: false, foreign_key: true |
 
 ### Associations
 - belongs_to :user
-- belongs_to :purchases
+- has_one :purchases
 - has_one_attached :image
 
 ## Purchases Table
@@ -47,15 +47,15 @@
 - has_one :address
 
 ## Addresses Table
-| Column        | Type       | Options                       |
-|---------------|------------|-------------------------------|
-| postal_code   | string     | null: false                   |
-| prefecture_id | integer    | null: false                   |
-| city          | string     | null: false                   |
-| street        | string     | null: false                   |
-| building      | string     |                               |
-| phone_number  | string     | null: false                   |
-| purchase_id   | references | null: false, foreign key      |
+| Column        | Type       | Options                        |
+|---------------|------------|--------------------------------|
+| postal_code   | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| city          | string     | null: false                    |
+| street        | string     | null: false                    |
+| building      | string     |                                |
+| phone_number  | string     | null: false                    |
+| purchase_id   | references | null: false, foreign_key: true |
 
 
 ### Associations
