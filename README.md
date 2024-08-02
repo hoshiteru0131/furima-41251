@@ -31,7 +31,7 @@
 
 ### Associations
 - belongs_to :user
-- has_one :purchases
+- has_one :purchase
 - has_one_attached :image
 
 ## Purchases Table
@@ -55,7 +55,7 @@
 | street        | string     | null: false                    |
 | building      | string     |                                |
 | phone_number  | string     | null: false                    |
-| purchase_id   | references | null: false, foreign_key: true |
+| purchase      | references | null: false, foreign_key: true |
 
 
 ### Associations

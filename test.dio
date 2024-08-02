@@ -277,7 +277,7 @@
                         <mxRectangle width="150" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="c6RI3bk43dYXP0PyxnaF-119" value="purchase_id" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="c6RI3bk43dYXP0PyxnaF-99">
+                <mxCell id="c6RI3bk43dYXP0PyxnaF-119" value="purchase" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="c6RI3bk43dYXP0PyxnaF-99">
                     <mxGeometry x="30" y="231.28571428571428" width="150" height="34.285714285714285" as="geometry">
                         <mxRectangle width="150" height="30" as="alternateBounds"/>
                     </mxGeometry>
