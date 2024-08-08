@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!
 
   private
 
@@ -18,6 +17,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update,
                                       keys: [:nickname, :last_name_kanji, :first_name_kanji, :last_name_kana, :first_name_kana,
                                              :birth_date])
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password])
   end
 end
