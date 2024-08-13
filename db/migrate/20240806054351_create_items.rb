@@ -14,4 +14,7 @@ class CreateItems < ActiveRecord::Migration[7.0]
       t.timestamps
     end
   end
+  def sold?
+    self.is_sold 
+  end
 end
