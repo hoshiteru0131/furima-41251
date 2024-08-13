@@ -67,4 +67,7 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+  config.active_storage.routes_prefix = '/files'  # 任意のプレフィックス
+  config.active_storage.service = :local  # 使用するサービス
+  Rails.application.routes.default_url_options = { host: 'localhost', port: 3000 }
 end
