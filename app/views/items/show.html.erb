@@ -11,11 +11,11 @@
       <%# 商品が売れている場合は、sold outを表示しましょう %>
     
       
-      <% if false %>
+      
         <div class="sold-out">
           <span>Sold Out!!</span>
         </div>
-      <% end %>
+   
       <%# //商品が売れている場合は、sold outを表示しましょう %>
     </div>
     <div class="item-price-box">
@@ -27,7 +27,7 @@
       </span>
     </div>
 
-    <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
+    
     <% if user_signed_in? %>
       <% if current_user.id == @item.user.id %>
        <%= link_to "商品の編集", "#", method: :get, class: "item-red-btn" %>
@@ -42,7 +42,7 @@
     <% end %>
 
 
-    <%# //ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
+    
 
     <div class="item-explain-box">
       <span><%= @item.description %></span>
