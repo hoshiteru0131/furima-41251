@@ -26,14 +26,6 @@ class ItemsController < ApplicationController
   def edit
   end
 
-  def set_item
-    @item = Item.find(params[:id])
-  end
-
-  def redirect_if_not_owner
-    redirect_to root_path unless current_user.id == @item.user_id
-  end
-
   def update
     if @item.update(item_params)
       redirect_to item_path(@item)
@@ -52,5 +44,13 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :description, :image, :category_id, :condition_id, :shipping_fee_id, :prefecture_id,
                                  :shipping_day_id, :price).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def redirect_if_not_owner
+    redirect_to root_path unless current_user.id == @item.user_id
   end
 end
