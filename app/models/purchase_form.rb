@@ -25,7 +25,7 @@ class PurchaseForm
       address:,
       building:,
       phone_number:,
-      purchase_id: order.id
+      order_id: order.id
     )
   end
 end
