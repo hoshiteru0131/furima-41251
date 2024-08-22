@@ -35,10 +35,6 @@ class OrdersController < ApplicationController
     )
   end
 
-  def address_params
-    params.require(:shipping_address).permit(:postal_code, :prefecture_id, :city, :address, :building, :phone_number)
-  end
-
   def pay_item
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(

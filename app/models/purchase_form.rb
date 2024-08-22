@@ -15,9 +15,6 @@ class PurchaseForm
 
   def save
     order = Order.create(user_id:, item_id:)
-
-    return false unless order.persisted?
-
     ShippingAddress.create(
       postal_code:,
       prefecture_id:,
