@@ -14,7 +14,7 @@
 
 ### Associations
 - has_many :items
-- has_many :purchases
+- has_many :orders
 
 ## Items Table
 | Column          | Type       | Options                        |
@@ -31,14 +31,14 @@
 
 ### Associations
 - belongs_to :user
-- has_one :purchase
+- has_one :order
 - has_one_attached :image
 
-## Purchases Table
+## Orders Table
 | Column   | Type       | Options                       |
 |----------|------------|-------------------------------|
-| user     | references | null: false, foreign key      |
-| item     | references | null: false, foreign key      |
+| user     | references | null: false, foreign_key: true |
+| item     | references | null: false, foreign_key: true |
 
 
 ### Associations
@@ -55,8 +55,8 @@
 | street        | string     | null: false                    |
 | building      | string     |                                |
 | phone_number  | string     | null: false                    |
-| purchase      | references | null: false, foreign_key: true |
+| order         | references | null: false, foreign_key: true |
 
 
 ### Associations
-- belongs_to :purchase
+- belongs_to :order
