@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe PurchaseForm, type: :model do
   before do
-    @purchase_form = FactoryBot.build(:purchase_form)
+    item = FactoryBot.create(:item)
+    user = FactoryBot.create(:user)
+
+    @purchase_form = FactoryBot.build(:purchase_form, item_id: item.id, user_id: user.id)
   end
 
   describe '配送先情報の保存' do
@@ -76,6 +79,24 @@ RSpec.describe PurchaseForm, type: :model do
         @purchase_form.phone_number = '090-1234-5678'
         @purchase_form.valid?
         expect(@purchase_form.errors.full_messages).to include('Phone number is invalid')
+      end
+
+      it 'tokenが空では登録できない' do
+        @purchase_form.token = ''
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("Token can't be blank")
+      end
+
+      it 'user_idが空では登録できない' do
+        @purchase_form.user_id = nil
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("User can't be blank")
+      end
+
+      it 'item_idが空では登録できない' do
+        @purchase_form.item_id = nil
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("Item can't be blank")
       end
     end
   end

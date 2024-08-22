@@ -1,9 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  
-  
-  console.log("PAY.JP initialized with public key:", gon.public_key);
-  const payjp = Payjp('pk_test_9cd3b9a9ef871a4ed567e7b0');
+  const payjp = Payjp('PAYJP_PUBLIC_KEY');
   const elements = payjp.elements();
   const cardNumber = elements.create('cardNumber');
   const cardExpiry = elements.create('cardExpiry');
@@ -33,4 +30,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
+window.addEventListener("turbo:load", pay);
+window.addEventListener("turbo:render", pay);

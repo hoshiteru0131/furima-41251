@@ -1,5 +1,5 @@
 class ShippingAddress < ApplicationRecord
-  belongs_to :order
+  belongs_to :purchase
 
   validates :postal_code, presence: true, format: { with: /\A\d{3}-\d{4}\z/ }
   validates :prefecture_id, numericality: { other_than: 0 }
