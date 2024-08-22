@@ -4,13 +4,11 @@ class OrdersController < ApplicationController
   before_action :redirect_if_not_eligible, only: [:index, :create]
 
   def index
-    gon.public_key = ENV['PAYJP_PUBLIC_KEY']
     @purchase_form = PurchaseForm.new
   end
 
   def create
     @purchase_form = PurchaseForm.new(order_params)
-
     if @purchase_form.valid?
       @purchase_form.save
       pay_item
@@ -51,6 +49,7 @@ class OrdersController < ApplicationController
   end
 
   def set_item
+    gon.public_key = ENV['PAYJP_PUBLIC_KEY']
     @item = Item.find(params[:item_id])
   end
 
